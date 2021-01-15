@@ -7,14 +7,16 @@
 
 def odd_indices(list_U):
 
+    list2 = []
     count = 0
+    loop_counter = 0
 
-    for i in list_U:
-        if count % 2 == 1:
-            list_U.append(i)
-        count += 1
+    for single_element in list_U:
+        if loop_counter % 2 == 1:
+            list2.append(single_element)
+        loop_counter += 1
 
-    return count
+    return list2
 
 
 def main():
@@ -36,27 +38,22 @@ def main():
     loop_counter = 0
 
     while loop_counter < amount:
-        loop_counter = loop_counter + 1
-
+        loop_counter += 1
         while True:
             try:
                 number_input = input("Enter a chosen number: ")
                 number = int(number_input)
                 list_U.append(number)
-
-                if loop_counter < amount:
-                    break
-
-                odd_element = odd_indices(list_U)
-
-                print("")
-                print("The odd elements in the list are: {0}"
-                      .format(odd_element))
                 break
-
             except Exception:
                 # output
                 print("Invalid input, try again.")
+
+    list2 = odd_indices(list_U)
+
+    print("")
+    print(list_U)
+    print("The odd elements in the list are: {0}".format(list2))
 
 
 if __name__ == "__main__":
